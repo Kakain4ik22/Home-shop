@@ -5,7 +5,7 @@ const Checkout = () => {
   const cartItems = useSelector((state) => state.products.cart);
 
   return (
-    <div>
+    <div className='main-home'>
       <h1>Корзина</h1>
       {cartItems.length === 0 ? (
         <p>Корзина пуста</p>

@@ -7,7 +7,7 @@ import Contact from './pages/Contact';
 import Checkout from './pages/Checkout';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import './App.css'; // Импортируем CSS
+import './App.css'; 
 
 function App() {
   return (

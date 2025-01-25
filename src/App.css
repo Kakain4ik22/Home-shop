@@ -1,13 +1,24 @@
 /* Основные стили для всего приложения */
-body {
-  font-family: 'Roboto', Arial, sans-serif;
-  background-color: #f0fdf4; /* Светло-зеленый фон */
+html, body {
+  height: 100%; /* Занимает всю высоту страницы */
   margin: 0;
   padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #f0fdf4; /* Светло-зеленый фон */
+
   color: #2d3748; /* Темно-серый текст */
 }
 
-/* Стили для заголовка */
+.HeaderLogo{
+  display: flex;
+  justify-content: center;
+}
+
 header {
   background: linear-gradient(90deg, #38b2ac, #319795); /* Градиент из бирюзового в зеленый */
   color: white;
@@ -38,12 +49,22 @@ header .button {
   border-radius: 25px;
   font-size: 1rem;
   transition: background-color 0.3s, transform 0.2s;
-  
 }
 
 header .button:hover {
   background-color: #285e61;
   transform: scale(1.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center; /* Вертикальное выравнивание */
+  gap: 10px; /* Отступ между логотипом и заголовком */
+}
+
+.logo {
+  width: 40px; /* Настройте размер логотипа */
+  height: 40px; /* Настройте размер логотипа */
 }
 
 /* Основной контейнер */
@@ -116,6 +137,9 @@ footer {
   padding: 10px;
   margin-top: 20px;
   font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Стили для списка товаров */
@@ -144,13 +168,14 @@ textarea {
   border-radius: 5px;
 }
 
-/* Стили для главной страницы */
 
-.main-home{
+/* Стили для главной страницы */
+.main-home {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  flex: 1; 
 }
 
 .home-banner {
@@ -158,14 +183,8 @@ textarea {
   align-items: center;
   justify-content: center;
   align-content: center;
-  width: 600px;
-  height: 300px;
-  background: url('path-to-banner-image.png') no-repeat center; /* PNG для баннера */
-  background-size: cover;
-  color: white;
-  text-align: center;
-  font-size: 2rem;
-
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .home-banner h1 {
@@ -174,7 +193,7 @@ textarea {
   border-radius: 10px;
 }
 
-/* Адаптивный дизайн */
+
 @media (max-width: 768px) {
   header h1 {
     font-size: 1.8rem;
