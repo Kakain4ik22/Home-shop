@@ -35,7 +35,8 @@ const Products = () => {
           <button className="filter-button" onClick={() => setFilterPrice(2000)}>До 2000₽</button>
           <button className="filter-button" onClick={() => setFilterPrice(null)}>Сбросить фильтр</button>
         </div>
-    
+
+        {/* Карточки товаров */}
         <div className="products-container">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />

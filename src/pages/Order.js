@@ -46,20 +46,86 @@ const Order = () => {
         </div>
       )}
 
-      {step === 2 && (
-        <div>
-          <h2>Шаг 2: Оплата</h2>
+{step === 2 && (
+        <div className="order-container">
+        <div className="order-form">
+          <h2>Оплата</h2>
+  
+          <label>Номер карты</label>
           <input
+            className='card-number'
             type="text"
-            placeholder="Номер карты"
+            name='cardNumber'
+            placeholder="#### #### #### ####"
+            maxLength="16"
             value={formData.cardNumber}
             onChange={(e) => setFormData({ ...formData, cardNumber: e.target.value })}
           />
+  
+          <label>Card Holder</label>
+          <input
+            className='card-holder'
+            type="text"
+            name="cardHolder"
+            placeholder="Full Name"
+            value={formData.cardHolder}
+           // onChange={handleChange}
+          />
+  
+          <div className="row">
+            <div className="column">
+              <label>Expiration Date</label>
+              <div className="expiration">
+                <select
+                  name="expiryMonth"
+                  value={formData.expiryMonth}
+                  className='select-month'
+                >
+                  <option value="">Month</option>
+                  {[...Array(12)].map((_, i) => (
+                    <option key={i + 1} value={i + 1}>
+                      {i + 1 < 10 ? `0${i + 1}` : i + 1}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  name="expiryYear"
+                  value={formData.expiryYear}
+               //   onChange={handleChange}
+                  className='select-year'
+                >
+                  <option value="">Year</option>
+                  {[...Array(30)].map((_, i) => (
+                    <option key={i} value={2025 - i}>
+                      {2025 - i}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+  
+            <div className="column">
+              <label className='CVC'>CVC</label>
+              <input
+                className='cvc-input'
+                type="text"
+                name="cvc"
+                placeholder="XXX"
+                maxLength="3"
+                value={formData.cvc}
+               // onChange={handleChange}
+              />
+            </div>
+          </div>
+  
           <div className="button-container">
             <button onClick={prevStep} className="previous-button">Назад</button>
             <button onClick={nextStep} className="next-button">Далее</button>
-          </div>
+          </div> 
         </div>
+      </div>
+           
+        
       )}
 
       {step === 3 && (
